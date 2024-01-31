@@ -3,4 +3,5 @@ if vim.fn.has('nvim-0.8') then
   require("core.plugin_configs")
 end
 require("core.options")
+require("core.colours")
 vim.opt.tabstop = 2
