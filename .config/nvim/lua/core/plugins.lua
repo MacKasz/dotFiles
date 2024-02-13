@@ -17,7 +17,10 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 require("lazy").setup({
     {
         'nvim-telescope/telescope.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' }
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-tree/nvim-web-devicons'
+        }
     },
     "tanvirtin/monokai.nvim",
     {
@@ -29,6 +32,7 @@ require("lazy").setup({
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
     "nvim-lualine/lualine.nvim",
+    "lewis6991/gitsigns.nvim",
     {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
     {'hrsh7th/cmp-nvim-lsp'},
     {'hrsh7th/nvim-cmp'},

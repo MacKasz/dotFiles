@@ -89,22 +89,37 @@ ins_left {
 ins_left {
   -- mode component
   function()
-    return ''
+      local icon = {
+          n = '',
+          i = '󱞣',
+          v = '󰍉',
+          V = '󰛬',
+          [''] = '󰛭',
+          ['!'] = '',
+          c = '',
+      }
+      local current_icon = icon[ vim.fn.mode() ];
+      if current_icon == nil then
+          current_icon = '?'
+      end
+      return current_icon
   end,
   color = function()
     -- auto change color according to neovims mode
     local mode_color = {
       n = colors.red,
       i = colors.green,
+      -- Visual modes
       v = colors.blue,
-      [''] = colors.blue,
       V = colors.blue,
+      [''] = colors.blue,
       c = colors.magenta,
       no = colors.red,
       s = colors.orange,
       S = colors.orange,
       [''] = colors.orange,
       ic = colors.yellow,
+      -- Replace modes
       R = colors.violet,
       Rv = colors.violet,
       cv = colors.red,
