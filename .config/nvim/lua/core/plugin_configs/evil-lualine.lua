@@ -5,18 +5,24 @@ local lualine = require('lualine')
 
 -- Color table for highlights
 -- stylua: ignore
+-- local colors = require("nord.named_colors")
+-- print(colors.green)
+--print(colors.red)
+--
+print(vim.api.nvim_get_color_by_name("red"))
+
 local colors = {
-  bg       = '#202328',
-  fg       = '#bbc2cf',
-  yellow   = '#ECBE7B',
-  cyan     = '#008080',
-  darkblue = '#081633',
-  green    = '#98be65',
-  orange   = '#FF8800',
-  violet   = '#a9a1e1',
-  magenta  = '#c678dd',
-  blue     = '#51afef',
-  red      = '#ec5f67',
+   bg       = '#202328',
+   fg       = '#bbc2cf',
+   yellow   = '#ECBE7B',
+   cyan     = '#008080',
+   darkblue = '#081633',
+   green    = '#98be65',
+   orange   = '#FF8800',
+   violet   = '#a9a1e1',
+   magenta  = '#c678dd',
+   blue     = '#51afef',
+   red      = '#ec5f67',
 }
 
 local conditions = {
@@ -130,7 +136,7 @@ ins_left {
       ['!'] = colors.red,
       t = colors.red,
     }
-    return { fg = mode_color[vim.fn.mode()] }
+    return { fg = mode_color[vim.fn.mode()], bg = colors.none}
   end,
   padding = { right = 1 },
 }
@@ -170,26 +176,6 @@ ins_left {
   end,
 }
 
---ins_left {
-  ---- Lsp server name .
-  --function()
-    --local msg = 'No Active Lsp'
-    --local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-    --local clients = vim.lsp.get_active_clients()
-    --if next(clients) == nil then
-      --return msg
-    --end
-    --for _, client in ipairs(clients) do
-      --local filetypes = client.config.filetypes
-      --if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        --return client.name
-      --end
-    --end
-    --return msg
-  --end,
-  --icon = ' LSP:',
-  --color = { fg = '#ffffff', gui = 'bold' },
---}
 
 -- Add components to right sections
 ins_right {

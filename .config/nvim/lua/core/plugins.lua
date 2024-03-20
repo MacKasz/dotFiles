@@ -1,3 +1,4 @@
+-- Bootstrap lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -11,30 +12,49 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
-vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+-- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.mapleader = " "
 
 require("lazy").setup({
+    -- Themes
+    "tanvirtin/monokai.nvim",
+    "shaunsingh/nord.nvim",
+    "hachy/eva01.vim",
+
+    -- Other
+    "tpope/vim-fugitive",
+    "tpope/vim-commentary",
+    "lewis6991/gitsigns.nvim",
+    "nvim-lualine/lualine.nvim",
     {
         'nvim-telescope/telescope.nvim',
-        dependencies = {
+        dependencies =
+        {
             'nvim-lua/plenary.nvim',
             'nvim-tree/nvim-web-devicons'
         }
     },
-    "tanvirtin/monokai.nvim",
+
+    -- LSP
+    "williamboman/mason.nvim",
+    {
+        "williamboman/mason-lspconfig.nvim",
+        dependencies = {
+            "williamboman/mason.nvim",
+            'neovim/nvim-lspconfig',
+        },
+    },
+    {
+        'VonHeikemen/lsp-zero.nvim', branch = 'v3.x',
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/nvim-cmp',
+            'L3MON4D3/LuaSnip',
+            'neovim/nvim-lspconfig',
+        }
+    },
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate"
     },
-    "tpope/vim-fugitive",
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-    "nvim-lualine/lualine.nvim",
-    "lewis6991/gitsigns.nvim",
-    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/nvim-cmp'},
-    {'L3MON4D3/LuaSnip'},
   })
