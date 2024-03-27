@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+# custom_copy_command=""
+
+file="$1"
+path="$2"
+
+notify-send "$1 $2"
+
+

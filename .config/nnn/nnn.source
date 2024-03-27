@@ -1,0 +1,7 @@
+#!/bin/sh
+
+export NNN_FIFO=/tmp/nnn.fifo 
+export NNN_BMS="h:$HOME;m:/mnt;M:/media;r:/"
+
+source $HOME/.config/nnn/plugins.sh
+source $HOME/.config/nnn/quitcd.bash_zsh
