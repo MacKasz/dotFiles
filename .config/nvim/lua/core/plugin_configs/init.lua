@@ -1,5 +1,0 @@
-require("core.plugin_configs.telescope")
-require("core.plugin_configs.treesitter")
-require("core.plugin_configs.lsp")
-require("core.plugin_configs.bubble-lualine")
-require("core.plugin_configs.gitsigns")
